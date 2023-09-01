@@ -138,7 +138,35 @@ class LinkedList:
         while temp is not None:
             print(temp.value)
             temp = temp.next
+    
+    def remove_duplicates(self):
+        seen = set()
+        curr = self.head
+        prev = None
+        while curr:
+            if curr.value in seen:
+                prev.next = curr.next
+                self.length -= 1
+            else:
+                seen.add(curr.value)
+                prev = curr
+            curr = curr.next
 
+    def binary_to_decimal(self):
+        temp = self.head
+        count = -1
+        while temp:
+            count += 1
+            temp = temp.next
+        temp = self.head
+        sum = 0
+        while temp:
+            sum += 2 ** count * temp.value
+            count -= 1
+            temp = temp.next
+        return sum
+
+        
 
 def find_kth_from_end(self, k):
     slow_ptr = self.head
@@ -152,11 +180,11 @@ def find_kth_from_end(self, k):
         fast_ptr = fast_ptr.next
     return slow_ptr
 
-my_linked_list = LinkedList(1)
-my_linked_list.append(2)
-my_linked_list.append(3)
-my_linked_list.append(4)
-my_linked_list.append(5)
-my_linked_list.reverse()
-my_linked_list.reverse()
-my_linked_list.print_list()
+
+
+linked_list = LinkedList(1)
+linked_list.append(1)
+linked_list.append(0)
+print(linked_list.binary_to_decimal())
+
+linked_list.print_list()
