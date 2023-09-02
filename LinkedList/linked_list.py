@@ -165,6 +165,22 @@ class LinkedList:
             count -= 1
             temp = temp.next
         return sum
+    
+    def reverse_between(self, m, n):
+        if self.length <= 1:
+            return
+        dummy = Node(0)
+        dummy.next = self.head
+        prev = dummy
+        for i in range(m):
+            prev = prev.next
+        current = prev.next
+        for i in range(n - m):
+            temp = current.next
+            current.next = temp.next
+            temp.next = prev.next
+            prev.next = temp
+        self.head = dummy.next
 
         
 
@@ -179,12 +195,3 @@ def find_kth_from_end(self, k):
         slow_ptr = slow_ptr.next
         fast_ptr = fast_ptr.next
     return slow_ptr
-
-
-
-linked_list = LinkedList(1)
-linked_list.append(1)
-linked_list.append(0)
-print(linked_list.binary_to_decimal())
-
-linked_list.print_list()
