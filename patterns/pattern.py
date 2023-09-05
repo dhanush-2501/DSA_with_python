@@ -141,7 +141,90 @@ class Pattern:
             for j in range(1, i + 1):
                 print(i, end='')
             print()
+    
+    def alternate_bin_lower_triangle(self, size: int) -> None:
+        """
+        Generate a lower triangle pattern of alternate binary values.
 
+        Args:
+            size (int): The height (number of rows) of the triangle.
+
+        Returns:
+            None
+        """
+        current = 1
+        for i in range(1, size + 1):
+            for j in range(1, i + 1):
+                print(current, end='')
+                current = 1 - current
+            print()
+
+    def mirror_numeric_triangle(self, size: int) -> None:
+        """
+        Generate a mirror triangle pattern of numeric values with aligned endings.
+
+        Args:
+            size (int): The height (number of rows) of the triangle.
+
+        Returns:
+            None
+        """
+        max_width = len(str(size))  # Calculate the maximum width of a number in the triangle
+
+        for i in range(1, size + 1):
+            # Numbers increasing
+            for j in range(1, i + 1):
+                print(f"{j:{max_width}}", end='')
+
+            # Calculate space to align endings
+            space = 2 * (size - i)
+            print("*" * (max_width * space), end='')
+
+            # Numbers decreasing
+            for j in range(i, 0, -1):
+                print(f"{j:{max_width}}", end='')
+
+            print()  # Move to the next line
+
+    def continous_numeric_lower_triangle(self, size: int) -> None:
+        """
+        Generate a lower triangle pattern of continous numeric values.
+
+        Args:
+            size (int): The height (number of rows) of the triangle.
+
+        Returns:
+            None
+        """
+        current = 1
+        for i in range(1, size + 1):
+            for j in range(1, i + 1):
+                print(current, " ", end='')
+                current += 1
+            print()
+
+    def alphabet_lower_triangle(self, size):
+        """
+        Generate a lower triangle pattern of alphabet values.
+
+        Args:
+            size (int): The height (number of rows) of the triangle.
+
+        Returns:
+            None
+        """
+        if size < 1:
+            return
+
+        current_char = 'A'
+
+        for i in range(1, size + 1):
+            for j in range(1, i + 1):
+                print(current_char, end=' ')
+                current_char = chr(ord(current_char) + 1)
+            print()
+
+            
 
 # Example usage:
 if __name__ == "__main__":
@@ -156,4 +239,7 @@ if __name__ == "__main__":
     pattern.lower_triangle_continuous_numeric(5)
     pattern.diamond(5)
     pattern.arrow(5)
+    pattern.alternate_bin_lower_triangle(5)
+    pattern.mirror_numeric_triangle(10)
+    pattern.continous_numeric_lower_triangle(5)
 
