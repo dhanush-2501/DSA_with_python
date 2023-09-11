@@ -182,7 +182,36 @@ class LinkedList:
             prev.next = temp
         self.head = dummy.next
 
-        
+    def bubble_sort(self):
+        # Initialize the outer and inner pointers
+        outer = self.head
+
+        while outer:
+            inner = self.head
+            swapped = False
+
+            while inner and inner.next:
+                if inner.value > inner.next.value:
+                    inner.value, inner.next.value = inner.next.value, inner.value
+                    swapped = True
+                inner = inner.next
+
+            if not swapped:
+                # If no swaps were made in this pass, the list is sorted
+                break
+
+            outer = outer.next
+
+    def selection_sort(self):
+        outer = self.head
+        while outer:
+            inner = outer.next
+            while inner:
+                if outer.value > inner.value:
+                    outer.value, inner.value = inner.value, outer.value
+                inner = inner.next
+            outer = outer.next
+
 
 def find_kth_from_end(self, k):
     slow_ptr = self.head
@@ -195,3 +224,21 @@ def find_kth_from_end(self, k):
         slow_ptr = slow_ptr.next
         fast_ptr = fast_ptr.next
     return slow_ptr
+
+
+my_linked_list = LinkedList(4)
+my_linked_list.append(2)
+my_linked_list.append(6)
+my_linked_list.append(5)
+my_linked_list.append(1)
+my_linked_list.append(3)
+
+print("Linked List Before Sort:")
+my_linked_list.print_list()
+
+my_linked_list.selection_sort()
+
+print("\nSorted Linked List:")
+my_linked_list.print_list()
+
+   
