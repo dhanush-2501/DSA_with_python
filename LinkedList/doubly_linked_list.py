@@ -118,12 +118,6 @@ class DoublyLinkedList:
         self.length -= 1
         return temp
         
-
-
-
-
-
-
     def print_list(self):
         temp = self.head
         while temp:
