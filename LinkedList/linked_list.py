@@ -181,7 +181,7 @@ class LinkedList:
             temp.next = prev.next
             prev.next = temp
         self.head = dummy.next
-
+        
     def bubble_sort(self):
         # Initialize the outer and inner pointers
         outer = self.head
@@ -212,7 +212,6 @@ class LinkedList:
                 inner = inner.next
             outer = outer.next
 
-
 def find_kth_from_end(self, k):
     slow_ptr = self.head
     fast_ptr = self.head
@@ -240,5 +239,3 @@ my_linked_list.selection_sort()
 
 print("\nSorted Linked List:")
 my_linked_list.print_list()
-
-   

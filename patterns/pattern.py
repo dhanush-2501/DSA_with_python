@@ -224,7 +224,6 @@ class Pattern:
                 current_char = chr(ord(current_char) + 1)
             print()
 
-            
 
 # Example usage:
 if __name__ == "__main__":
@@ -242,4 +241,3 @@ if __name__ == "__main__":
     pattern.alternate_bin_lower_triangle(5)
     pattern.mirror_numeric_triangle(10)
     pattern.continous_numeric_lower_triangle(5)
-
